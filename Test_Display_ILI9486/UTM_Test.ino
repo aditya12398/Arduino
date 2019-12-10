@@ -36,6 +36,11 @@ void setup()
   randomSeed(analogRead(0));
   myGLCD.InitLCD();
   myGLCD.setFont(SmallFont);
+  myGLCD.setBackColor(64, 64, 64);
+  myGLCD.setColor(255, 255, 0);
+  myGLCD.drawLine(0,5,480,5);
+  myGLCD.drawLine(5,0,5,320);
+
   //LCD Screen setup
   lcd.setCursor(0, 0);
   Serial.begin(57600);
@@ -96,6 +101,7 @@ void setup()
 
 void loop()
 {
+  static int count = 0;
   myFile = SD.open(title, FILE_WRITE);
   DateTime now = rtc.now();
 
@@ -153,6 +159,11 @@ void loop()
   lcd.print(String(title));
   myFile.close();
   //delay(20);
+  count++;
+  if (count % 5 == 0)
+  {
+    plot();
+  }
 }
 void decode1()
 {
