@@ -223,10 +223,10 @@ void plot()
 {
   double limit_load = c10 * 15;
   double limit_disp = 15;
-  int max_width = 480;
-  int max_height = 320;
+  int max_width = 475;
+  int max_height = 315;
   double x, y;
-  x = load_result / limit_load * max_width;
+  x = (load_result * c10) / limit_load * max_width;
   y = displacement_result / limit_disp * max_height;
   myGLCD.drawPixel(5 + x, 5 + y);
 }
