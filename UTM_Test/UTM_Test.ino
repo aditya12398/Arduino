@@ -38,19 +38,21 @@ void setup()
   myGLCD.setFont(SmallFont);
   myGLCD.setBackColor(64, 64, 64);
   myGLCD.setColor(255, 255, 0);
-  myGLCD.drawLine(0,5,480,5);
+  myGLCD.drawLine(0,315,480,315);
   myGLCD.drawLine(5,0,5,320);
+  myGLCD.print("Displacement -->" , RIGHT, 300);
+  myGLCD.print("      ^ Load" , LEFT, 1);
 
   //LCD Screen setup
   lcd.setCursor(0, 0);
-  Serial.begin(57600);
+  //Serial.begin(57600);
   if (!rtc.begin())
   {
     lcd.print("Couldn't find RTC");
     while (1)
       ;
   }
-  Serial.begin(9600);
+  //Serial.begin(9600);
   pinMode(clockpin_load, INPUT);
   pinMode(datapin_load, INPUT);
   pinMode(clockpin_displacement, INPUT);
@@ -221,12 +223,12 @@ void decode2()
 
 void plot()
 {
-  double limit_load = c10 * 15;
-  double limit_disp = 15;
+  double limit_load = 10000.000000;
+  double limit_disp = 10.000000;
   int max_width = 475;
   int max_height = 315;
   double x, y;
-  x = (load_result * c10) / limit_load * max_width;
-  y = displacement_result / limit_disp * max_height;
-  myGLCD.drawPixel(5 + x, 5 + y);
+  x = fabs(((displacement_result * (double)max_width) / limit_disp));
+  y = fabs((load_result * c10 * (double)max_height) / limit_load);
+  myGLCD.drawPixel(5+x, 315-y);
 }

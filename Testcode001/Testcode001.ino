@@ -31,8 +31,8 @@ void loop() {
   myGLCD.print("Shilpa Kitni Sundar hai *_*", CENTER, 53);
   for (int i = 1; i < 100; i++)
   {
-    myGLCD.drawPixel (i, 2 * i);
-    myGLCD.drawPixel (480 - i, 2 * i);
+    myGLCD.drawPixel (i, 320 - 2 * i);
+    myGLCD.drawPixel (480 - i, 320 - 2 * i);
   }
   //delay(20000);
 }

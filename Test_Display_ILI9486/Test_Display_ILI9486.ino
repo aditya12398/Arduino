@@ -52,10 +52,10 @@ void loop()
 	myGLCD.fillRect(0, 306, 479, 319);
 	myGLCD.setColor(255, 255, 255);
 	myGLCD.setBackColor(255, 0, 0);
-	myGLCD.print("*What up, Gorgeous? *", CENTER, 1);
+	myGLCD.print("Ruthu is the Jared", CENTER, 1);
 	myGLCD.setBackColor(64, 64, 64);
 	myGLCD.setColor(255, 255, 0);
-	myGLCD.print("<http://www.RinkyDinkElectronics.com/>", CENTER, 307);
+	myGLCD.print("And my gf is gorgeous", CENTER, 307);
 
 	myGLCD.setColor(0, 0, 255);
 	myGLCD.drawRect(0, 14, 479, 305);
@@ -67,7 +67,7 @@ void loop()
 	for (int i = 9; i < 470; i += 10)
 		myGLCD.drawLine(i, 157, i, 161);
 	for (int i = 19; i < 220; i += 10)
-		myGLCD.drawLine(237, i, 241, i);
+		myGLCD.drawLine(237, i, 241, i);You are Gorgeous
 	// Draw sin-, cos- and tan-lines
 	myGLCD.setColor(0, 255, 255);
 	myGLCD.print("Sin", 5, 15);
