@@ -160,7 +160,7 @@ void loop()
   myFile.close();
   //delay(20);
   count++;
-  if (count % 5 == 0)
+  if ((count++) % 5 == 0)
   {
     plot();
   }
